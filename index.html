@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kesendra Workforce — AI-Assisted Recruitment &amp; Managed HR</title>
+<meta name="description" content="Kesendra Workforce helps startups hire better talent faster while reducing HR workload through AI-assisted recruitment and managed internship programs.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230a0a0b'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='58' font-weight='700' fill='%23d4af37' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ============ TOKENS ============ */
+:root{
+  --black:#0a0a0b;
+  --black-2:#141416;
+  --black-3:#1b1b1e;
+  --grey:#3a3a3e;
+  --grey-2:#6e6e74;
+  --lgrey:#c9c9cd;
+  --lgrey-2:#e8e8ea;
+  --gold:#d4af37;
+  --gold-2:#f0cf6b;
+
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+
+  --maxw:1160px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--lgrey);
+  font-family:var(--font-body);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:var(--font-display);
+  color:var(--lgrey-2);
+  margin:0;
+  line-height:1.15;
+}
+p{margin:0;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+img,svg{display:block;}
+
+::selection{background:var(--gold);color:var(--black);}
+
+:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+
+.wrap{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 28px;
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  color:var(--gold);
+  font-size:0.8rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+.eyebrow::before{
+  content:"";
+  width:8px;height:8px;
+  background:var(--gold);
+  border-radius:2px;
+  box-shadow:0 0 10px var(--gold);
+}
+
+/* faint scanline overlay across whole page */
+.scanlines{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9999;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.018) 0px,
+    rgba(255,255,255,0.018) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode:overlay;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:500;
+  background:rgba(10,10,11,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--grey);
+}
+.nav-inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 28px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.nav-dots{display:flex;gap:7px;margin-right:14px;}
+.nav-dots span{width:11px;height:11px;border-radius:50%;display:block;}
+.nav-dots span:nth-child(1){background:var(--grey-2);}
+.nav-dots span:nth-child(2){background:var(--lgrey-2);}
+.nav-dots span:nth-child(3){background:var(--gold);}
+
+.brand{
+  display:flex;
+  align-items:center;
+  font-family:var(--font-mono);
+  font-size:0.95rem;
+  color:var(--lgrey-2);
+  white-space:nowrap;
+}
+.brand b{color:var(--gold); font-weight:700;}
+.brand .path{color:var(--grey-2); margin-left:6px;}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--font-mono);
+  font-size:0.85rem;
+}
+.nav-links a{
+  padding:8px 14px;
+  border-radius:6px;
+  color:var(--lgrey);
+  transition:color .15s, background .15s;
+  position:relative;
+}
+.nav-links a:hover{ color:var(--gold-2); background:var(--black-3); }
+.nav-links a.active{ color:var(--gold); }
+.nav-links a.active::after{
+  content:"";
+  position:absolute;
+  left:14px; right:14px; bottom:3px;
+  height:2px;
+  background:var(--gold);
+}
+
+.nav-cta{
+  font-family:var(--font-mono);
+  font-size:0.82rem;
+  background:var(--gold);
+  color:var(--black);
+  padding:9px 16px;
+  border-radius:6px;
+  font-weight:600;
+  white-space:nowrap;
+  transition:background .15s, transform .15s;
+  border:none;
+}
+.nav-cta:hover{ background:var(--gold-2); transform:translateY(-1px); }
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:1px solid var(--grey);
+  color:var(--lgrey-2);
+  font-family:var(--font-mono);
+  padding:7px 10px;
+  border-radius:6px;
+}
+
+@media (max-width:860px){
+  .nav-links{
+    position:fixed;
+    top:64px; left:0; right:0;
+    background:var(--black-2);
+    border-bottom:1px solid var(--grey);
+    flex-direction:column;
+    align-items:stretch;
+    padding:10px;
+    display:none;
+    gap:2px;
+  }
+  .nav-links.open{display:flex;}
+  .nav-links a{padding:12px 14px;}
+  .menu-toggle{display:inline-flex;}
+  .nav-cta{display:none;}
+}
+
+/* ============ SECTION SPACING ============ */
+section{ padding:120px 0 100px; position:relative; }
+section.tight{ padding-top:100px; }
+.section-head{ max-width:640px; margin-bottom:56px; }
+.section-head h2{ font-size:clamp(1.7rem, 3vw, 2.5rem); font-weight:600; }
+.section-head .lede{ margin-top:14px; color:var(--grey-2); font-size:1.05rem; }
+
+/* ============ HERO ============ */
+.hero{
+  padding-top:170px;
+  padding-bottom:90px;
+  background:
+    radial-gradient(ellipse 700px 380px at 18% 0%, rgba(212,175,55,0.10), transparent 60%),
+    var(--black);
+  border-bottom:1px solid var(--grey);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:56px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(2.3rem, 4.6vw, 3.6rem);
+  font-weight:700;
+  letter-spacing:-0.01em;
+}
+.hero h1 .gold-line{
+  display:block;
+  color:var(--gold);
+  font-size:0.6em;
+  margin-top:10px;
+  font-weight:600;
+}
+.hero .pitch{
+  margin-top:24px;
+  font-size:1.1rem;
+  color:var(--lgrey);
+  max-width:520px;
+}
+.hero-ctas{
+  display:flex;
+  gap:14px;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+.btn{
+  font-family:var(--font-mono);
+  font-size:0.88rem;
+  padding:13px 22px;
+  border-radius:7px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:transform .15s, background .15s, border-color .15s, color .15s;
+  border:1px solid transparent;
+}
+.btn-primary{ background:var(--gold); color:var(--black); }
+.btn-primary:hover{ background:var(--gold-2); transform:translateY(-2px); }
+.btn-ghost{ border-color:var(--grey); color:var(--lgrey-2); }
+.btn-ghost:hover{ border-color:var(--gold); color:var(--gold-2); transform:translateY(-2px); }
+
+/* terminal window (signature element) */
+.terminal{
+  background:var(--black-2);
+  border:1px solid var(--grey);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,55,0.04);
+}
+.terminal-bar{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 14px;
+  background:var(--black-3);
+  border-bottom:1px solid var(--grey);
+}
+.terminal-bar .dot{width:11px;height:11px;border-radius:50%;}
+.terminal-bar .dot.g{background:var(--grey-2);}
+.terminal-bar .dot.l{background:var(--lgrey-2);}
+.terminal-bar .dot.gold{background:var(--gold);}
+.terminal-bar .title{
+  flex:1;
+  text-align:center;
+  font-family:var(--font-mono);
+  font-size:0.78rem;
+  color:var(--grey-2);
+}
+.terminal-body{
+  font-family:var(--font-mono);
+  font-size:0.84rem;
+  padding:18px 18px 14px;
+  height:330px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.terminal-body::-webkit-scrollbar{width:8px;}
+.terminal-body::-webkit-scrollbar-thumb{background:var(--grey); border-radius:4px;}
+.tline{ white-space:pre-wrap; word-break:break-word; }
+.tline .p{ color:var(--gold); }
+.tline .c{ color:var(--lgrey-2); }
+.tline .o{ color:var(--grey-2); }
+.tline .warn{ color:var(--gold-2); }
+.terminal-inputrow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:auto;
+  padding-top:6px;
+}
+.terminal-inputrow .p{ color:var(--gold); flex-shrink:0; }
+.terminal-inputrow input{
+  flex:1;
+  background:transparent;
+  border:none;
+  outline:none;
+  color:var(--lgrey-2);
+  font-family:var(--font-mono);
+  font-size:0.84rem;
+  caret-color:var(--gold);
+}
+.terminal-hint{
+  border-top:1px solid var(--grey);
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  color:var(--grey-2);
+  padding:9px 14px;
+  background:var(--black-3);
+}
+.terminal-hint b{ color:var(--gold); font-weight:600; }
+
+@media (max-width:900px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero{ padding-top:140px; }
+}
+
+/* ============ LOGO STRIP ============ */
+.strip{
+  border-bottom:1px solid var(--grey);
+  background:var(--black-2);
+}
+.strip .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:18px 28px;
+  flex-wrap:wrap;
+  font-family:var(--font-mono);
+  font-size:0.78rem;
+  color:var(--grey-2);
+  letter-spacing:0.04em;
+  text-align:center;
+}
+.strip .gold{ color:var(--gold); }
+
+/* ============ SERVICES ============ */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:18px;
+}
+.card{
+  background:var(--black-2);
+  border:1px solid var(--grey);
+  border-radius:10px;
+  padding:26px 22px;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.card:hover{
+  border-color:var(--gold);
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px -20px rgba(212,175,55,0.18);
+}
+.card .tag{
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  color:var(--gold);
+  letter-spacing:0.05em;
+}
+.card h3{
+  font-size:1.18rem;
+  font-weight:600;
+  margin-top:10px;
+  color:var(--lgrey-2);
+}
+.card p{
+  margin-top:10px;
+  font-size:0.92rem;
+  color:var(--grey-2);
+}
+.card .icon{
+  width:34px;height:34px;
+  border:1px solid var(--grey);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);
+  font-family:var(--font-mono);
+  font-size:0.95rem;
+  margin-bottom:14px;
+}
+
+@media (max-width:980px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .services-grid{ grid-template-columns:1fr; } }
+
+/* ============ PROCESS ============ */
+.process{
+  background:var(--black-2);
+  border-top:1px solid var(--grey);
+  border-bottom:1px solid var(--grey);
+}
+.pipeline{
+  max-width:620px;
+  position:relative;
+  margin-top:10px;
+}
+.pipeline::before{
+  content:"";
+  position:absolute;
+  left:23px; top:14px; bottom:14px;
+  width:1px;
+  background:linear-gradient(to bottom, var(--gold), var(--grey));
+}
+.pstep{
+  display:flex;
+  gap:22px;
+  position:relative;
+  padding-bottom:38px;
+}
+.pstep:last-child{ padding-bottom:0; }
+.pstep .num{
+  flex-shrink:0;
+  width:48px;height:48px;
+  border-radius:50%;
+  background:var(--black-3);
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:0.85rem;
+  display:flex;align-items:center;justify-content:center;
+  z-index:1;
+}
+.pstep .ptext{ padding-top:9px; }
+.pstep .ptext .lbl{
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  color:var(--grey-2);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.pstep .ptext h3{
+  font-size:1.12rem;
+  font-weight:600;
+  margin-top:4px;
+  color:var(--lgrey-2);
+}
+.pstep .ptext p{
+  margin-top:6px;
+  font-size:0.92rem;
+  color:var(--grey-2);
+  max-width:420px;
+}
+
+/* ============ ABOUT ============ */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:48px;
+  align-items:start;
+}
+.about-body p{ color:var(--lgrey); font-size:1.02rem; }
+.about-body p + p{ margin-top:16px; }
+.founder-card{
+  background:var(--black-2);
+  border:1px solid var(--grey);
+  border-radius:10px;
+  padding:26px;
+}
+.founder-card .role{
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  color:var(--gold);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.founder-card h3{
+  margin-top:10px;
+  font-size:1.3rem;
+  font-weight:700;
+}
+.founder-card .ftxt{
+  margin-top:12px;
+  font-size:0.92rem;
+  color:var(--grey-2);
+}
+.founder-card .divider{
+  height:1px;
+  background:var(--grey);
+  margin:18px 0;
+}
+.founder-card .kv{
+  display:flex;
+  justify-content:space-between;
+  font-family:var(--font-mono);
+  font-size:0.78rem;
+  color:var(--lgrey);
+  padding:5px 0;
+}
+.founder-card .kv span:first-child{ color:var(--grey-2); }
+
+@media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
+
+/* ============ CONTACT ============ */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:start;
+}
+.contact-info-box{
+  background:var(--black-2);
+  border:1px solid var(--grey);
+  border-radius:10px;
+  padding:26px;
+  font-family:var(--font-mono);
+  font-size:0.88rem;
+}
+.contact-info-box .ln{ margin-bottom:10px; }
+.contact-info-box .p{ color:var(--gold); }
+.contact-info-box .em{ color:var(--lgrey-2); }
+.copy-btn{
+  margin-top:14px;
+  background:transparent;
+  border:1px solid var(--grey);
+  color:var(--lgrey);
+  font-family:var(--font-mono);
+  font-size:0.76rem;
+  padding:8px 12px;
+  border-radius:6px;
+  transition:border-color .15s, color .15s;
+}
+.copy-btn:hover{ border-color:var(--gold); color:var(--gold-2); }
+
+.field{ margin-bottom:16px; }
+.field label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:0.74rem;
+  color:var(--grey-2);
+  margin-bottom:7px;
+  letter-spacing:0.04em;
+}
+.field input, .field textarea{
+  width:100%;
+  background:var(--black-2);
+  border:1px solid var(--grey);
+  border-radius:7px;
+  padding:11px 13px;
+  color:var(--lgrey-2);
+  font-family:var(--font-body);
+  font-size:0.95rem;
+  resize:vertical;
+  transition:border-color .15s;
+}
+.field input:focus, .field textarea:focus{
+  border-color:var(--gold);
+  outline:none;
+}
+.form-status{
+  margin-top:14px;
+  font-family:var(--font-mono);
+  font-size:0.8rem;
+  color:var(--gold-2);
+  min-height:1.2em;
+}
+
+@media (max-width:860px){ .contact-grid{ grid-template-columns:1fr; } }
+
+/* ============ FOOTER ============ */
+footer{
+  border-top:1px solid var(--grey);
+  padding:36px 0;
+}
+.foot-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:14px;
+  font-family:var(--font-mono);
+  font-size:0.78rem;
+  color:var(--grey-2);
+}
+.foot-inner a:hover{ color:var(--gold-2); }
+.foot-links{ display:flex; gap:18px; flex-wrap:wrap; }
+
+</style>
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div style="display:flex; align-items:center;">
+      <span class="nav-dots"><span></span><span></span><span></span></span>
+      <a href="#home" class="brand"><b>Kesendra</b>&nbsp;Workforce<span class="path">&nbsp;~/</span></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">~/home</a></li>
+      <li><a href="#services">~/services</a></li>
+      <li><a href="#process">~/process</a></li>
+      <li><a href="#about">~/about</a></li>
+      <li><a href="#contact">~/contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Start hiring →</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">[ menu ]</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">kesendra-workforce // recruitment-os</div>
+      <h1>We Help Companies Hire Faster
+        <span class="gold-line">Using AI-Assisted Recruitment</span>
+      </h1>
+      <p class="pitch">We help startups hire better talent faster while reducing HR workload through AI-assisted recruitment and managed internship programs.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Start hiring →</a>
+        <a href="#process" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+
+    <div class="terminal" id="heroTerminal">
+      <div class="terminal-bar">
+        <span class="dot g"></span><span class="dot l"></span><span class="dot gold"></span>
+        <span class="title">guest@kesendra: ~</span>
+      </div>
+      <div class="terminal-body" id="termOutput"></div>
+      <div class="terminal-inputrow wrap" style="padding:0 18px 14px;">
+        <span class="p">guest@kesendra:~$</span>
+        <input type="text" id="termInput" autocomplete="off" spellcheck="false" aria-label="Terminal command input">
+      </div>
+      <div class="terminal-hint">type <b>help</b> to see what this terminal can do</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span>built for startups that need to hire <span class="gold">without</span> building an HR department first</span>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">// services</div>
+      <h2>What we run for you</h2>
+      <p class="lede">Four contract-based services, all managed by Kesendra Workforce so your team doesn't have to.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="card">
+        <div class="icon">01</div>
+        <div class="tag">hiring</div>
+        <h3>Recruitment</h3>
+        <p>We source, screen, and shortlist candidates against your role, so you only interview people worth your time.</p>
+      </div>
+      <div class="card">
+        <div class="icon">02</div>
+        <div class="tag">internships</div>
+        <h3>Internship Management</h3>
+        <p>We recruit, onboard, and manage interns on contract, giving your team extra hands without extra HR overhead.</p>
+      </div>
+      <div class="card">
+        <div class="icon">03</div>
+        <div class="tag">bench</div>
+        <h3>Talent Pipeline</h3>
+        <p>A standing bench of pre-screened candidates, ready to fill roles the moment a seat opens up.</p>
+      </div>
+      <div class="card">
+        <div class="icon">04</div>
+        <div class="tag">ops</div>
+        <h3>HR Automation</h3>
+        <p>AI-assisted screening and workflow automation that cuts time-to-hire without cutting corners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">// pipeline</div>
+      <h2>How a hire actually happens</h2>
+      <p class="lede">One pipeline, start to finish. You tell us the need, we run the rest.</p>
+    </div>
+
+    <div class="pipeline">
+      <div class="pstep">
+        <div class="num">01</div>
+        <div class="ptext">
+          <div class="lbl">input</div>
+          <h3>Tell us your hiring need</h3>
+          <p>You describe the role, the skills, and the timeline. That's the only input we need to start.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="num">02</div>
+        <div class="ptext">
+          <div class="lbl">sourcing</div>
+          <h3>We source candidates</h3>
+          <p>Our team pulls from our talent pipeline and active sourcing channels to build a real candidate pool.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="num">03</div>
+        <div class="ptext">
+          <div class="lbl">automated</div>
+          <h3>AI screening</h3>
+          <p>Every candidate is screened against your role requirements before a human reviews anything.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="num">04</div>
+        <div class="ptext">
+          <div class="lbl">curated</div>
+          <h3>Shortlist</h3>
+          <p>You get a short, ranked list of candidates who actually match — not a folder of resumes.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="num">05</div>
+        <div class="ptext">
+          <div class="lbl">scheduled</div>
+          <h3>Interview</h3>
+          <p>We coordinate scheduling and logistics so your team just shows up and talks to people.</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="num">06</div>
+        <div class="ptext">
+          <div class="lbl">done</div>
+          <h3>Hire</h3>
+          <p>Offer, onboarding, and contract handled. The role gets filled, and your HR workload doesn't grow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">// about us</div>
+      <h2 style="margin-bottom:20px;">Built to run hiring, so you don't have to</h2>
+      <div class="about-body">
+        <p>Kesendra Workforce is a contract-based workforce partner. Companies bring us a hiring need, and we take on the contract to source, screen, and place the talent — then keep managing the HR side of that placement for as long as the contract runs.</p>
+        <p>Instead of a company building out a recruitment and HR function from scratch, Kesendra Workforce sits in that gap: sourcing candidates, running AI-assisted screening, managing internship programs, and keeping a standing talent pipeline ready for the next role.</p>
+      </div>
+    </div>
+
+    <div class="founder-card">
+      <div class="role">main contractor / ceo</div>
+      <h3>Muhammad Hasaan</h3>
+      <p class="ftxt">Hasaan leads Kesendra Workforce's contracts end to end — overseeing recruitment delivery, internship management, and HR operations for every partner company on our books.</p>
+      <div class="divider"></div>
+      <div class="kv"><span>company</span><span>Kesendra Workforce</span></div>
+      <div class="kv"><span>role</span><span>Main Contractor / CEO</span></div>
+      <div class="kv"><span>contact</span><span>hh7233279@gmail.com</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" style="border-top:1px solid var(--grey);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">// contact us</div>
+      <h2>Tell us your hiring need</h2>
+      <p class="lede">Send us the role and we'll start sourcing. No HR department required on your end.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form id="contactForm">
+        <div class="field">
+          <label for="cName">your name</label>
+          <input type="text" id="cName" required placeholder="Jane Doe">
+        </div>
+        <div class="field">
+          <label for="cCompany">company</label>
+          <input type="text" id="cCompany" required placeholder="Your startup">
+        </div>
+        <div class="field">
+          <label for="cNeed">what do you need to hire for?</label>
+          <textarea id="cNeed" rows="4" required placeholder="e.g. 2 backend engineers, 1 marketing intern, contract HR support..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send to hh7233279@gmail.com →</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+
+      <div class="contact-info-box">
+        <div class="ln"><span class="p">$</span> <span class="o">cat</span> <span class="em">contact.txt</span></div>
+        <div class="ln em">company&nbsp;:&nbsp;Kesendra Workforce</div>
+        <div class="ln em">contact&nbsp;&nbsp;:&nbsp;Muhammad Hasaan (Main Contractor / CEO)</div>
+        <div class="ln em">email&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;hh7233279@gmail.com</div>
+        <div class="ln"><span class="p">$</span> <span class="o">mail</span> <span class="em">hh7233279@gmail.com</span></div>
+        <button class="copy-btn" id="copyEmailBtn" type="button">copy email</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div><b style="color:var(--lgrey-2)">Kesendra Workforce</b> — Main Contractor: Muhammad Hasaan</div>
+    <div class="foot-links">
+      <a href="#home">home</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+      <a href="mailto:hh7233279@gmail.com">hh7233279@gmail.com</a>
+    </div>
+    <div>© 2026 Kesendra Workforce</div>
+  </div>
+</footer>
+
+<script>
+/* ============ NAV: mobile toggle + scroll-spy ============ */
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+const sections = ['home','services','process','about','contact'].map(id => document.getElementById(id));
+const linkMap = {};
+navLinks.querySelectorAll('a').forEach(a => linkMap[a.getAttribute('href').slice(1)] = a);
+
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      Object.values(linkMap).forEach(a => a.classList.remove('active'));
+      const link = linkMap[entry.target.id];
+      if(link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+sections.forEach(s => s && spy.observe(s));
+
+/* ============ TERMINAL ============ */
+const termOutput = document.getElementById('termOutput');
+const termInput = document.getElementById('termInput');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function addLine(html){
+  const div = document.createElement('div');
+  div.className = 'tline';
+  div.innerHTML = html;
+  termOutput.appendChild(div);
+  termOutput.scrollTop = termOutput.scrollHeight;
+}
+
+function addCmdEcho(cmd){
+  addLine('<span class="p">guest@kesendra:~$</span> <span class="c">' + escapeHtml(cmd) + '</span>');
+}
+
+function escapeHtml(str){
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function typeBoot(){
+  const bootLines = [
+    {t:'cmd', v:'./welcome.sh'},
+    {t:'out', v:'booting kesendra-workforce recruitment-os v1.0 ...'},
+    {t:'out', v:'[ok] AI screening engine online'},
+    {t:'out', v:'[ok] talent pipeline connected'},
+    {t:'out', v:"mission: help startups hire better talent, faster"},
+    {t:'warn', v:"type 'help' to see available commands"}
+  ];
+  for(const line of bootLines){
+    if(line.t === 'cmd'){
+      addCmdEcho(line.v);
+    } else if(line.t === 'warn'){
+      addLine('<span class="warn">' + line.v + '</span>');
+    } else {
+      addLine('<span class="o">' + line.v + '</span>');
+    }
+    if(!reduceMotion) await sleep(380);
+  }
+}
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+const COMMANDS = {
+  help: () => [
+    'available commands:',
+    '  about      - what kesendra workforce does',
+    '  services   - list our services',
+    '  process    - show the hiring pipeline',
+    '  contact    - get in touch',
+    '  hire       - jump to the contact form',
+    '  whoami     - who you are right now',
+    '  ls         - list files',
+    "  cat <file> - read a file (try 'cat about.txt')",
+    '  clear      - clear this terminal'
+  ],
+  about: () => [
+    'Kesendra Workforce — contract-based recruitment & HR management.',
+    'We help startups hire better talent faster while reducing HR workload',
+    'through AI-assisted recruitment and managed internship programs.',
+    'Main Contractor / CEO: Muhammad Hasaan.'
+  ],
+  services: () => [
+    '01  recruitment            end-to-end candidate sourcing & screening',
+    '02  internship-management  recruit, onboard, manage interns on contract',
+    '03  talent-pipeline        standing bench of pre-screened candidates',
+    '04  hr-automation          AI-assisted screening & workflow automation'
+  ],
+  process: () => [
+    '01 tell-us-your-hiring-need',
+    '02 we-source-candidates',
+    '03 ai-screening',
+    '04 shortlist',
+    '05 interview',
+    '06 hire'
+  ],
+  contact: () => {
+    document.getElementById('contact').scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'});
+    return ['reach us at: hh7233279@gmail.com', 'main contractor / ceo: muhammad hasaan', 'scrolling to contact section...'];
+  },
+  hire: () => {
+    document.getElementById('contact').scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'});
+    return ['got it. opening the hiring form for you...'];
+  },
+  whoami: () => ['guest@kesendra', 'role: visitor, currently evaluating a hiring partner'],
+  ls: () => ['about.txt   services.txt   process.sh   contact.txt'],
+  clear: () => { termOutput.innerHTML = ''; return null; }
+};
+
+function runCommand(raw){
+  const trimmed = raw.trim();
+  if(trimmed === '') return;
+  addCmdEcho(trimmed);
+
+  const parts = trimmed.split(/\s+/);
+  const cmd = parts[0].toLowerCase();
+
+  if(cmd === 'cat' && parts[1]){
+    const file = parts[1].toLowerCase();
+    const fileMap = { 'about.txt':'about', 'services.txt':'services', 'process.sh':'process', 'contact.txt':'contact' };
+    const mapped = fileMap[file];
+    if(mapped){
+      const out = COMMANDS[mapped]();
+      if(out) out.forEach(l => addLine('<span class="o">' + escapeHtml(l) + '</span>'));
+      return;
+    }
+    addLine('<span class="warn">cat: ' + escapeHtml(file) + ': no such file</span>');
+    return;
+  }
+
+  if(cmd === 'sudo'){
+    addLine('<span class="warn">permission denied: this terminal only grants hiring superpowers. try \'hire\'.</span>');
+    return;
+  }
+
+  if(COMMANDS[cmd]){
+    const out = COMMANDS[cmd]();
+    if(out) out.forEach(l => addLine('<span class="o">' + escapeHtml(l) + '</span>'));
+    return;
+  }
+
+  addLine('<span class="warn">command not found: ' + escapeHtml(cmd) + ". type 'help' for available commands.</span>");
+}
+
+termInput.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter'){
+    const val = termInput.value;
+    termInput.value = '';
+    runCommand(val);
+  }
+});
+
+document.getElementById('heroTerminal').addEventListener('click', () => termInput.focus());
+
+typeBoot();
+
+/* ============ CONTACT FORM -> mailto ============ */
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('cName').value.trim();
+  const company = document.getElementById('cCompany').value.trim();
+  const need = document.getElementById('cNeed').value.trim();
+
+  const subject = encodeURIComponent('Hiring inquiry from ' + name + ' (' + company + ')');
+  const body = encodeURIComponent('Name: ' + name + '\nCompany: ' + company + '\n\nHiring need:\n' + need);
+  window.location.href = 'mailto:hh7233279@gmail.com?subject=' + subject + '&body=' + body;
+
+  formStatus.textContent = 'opening your email client to hh7233279@gmail.com ...';
+});
+
+/* ============ COPY EMAIL ============ */
+const copyBtn = document.getElementById('copyEmailBtn');
+copyBtn.addEventListener('click', async () => {
+  try{
+    await navigator.clipboard.writeText('hh7233279@gmail.com');
+    copyBtn.textContent = 'copied ✓';
+  }catch(err){
+    copyBtn.textContent = 'hh7233279@gmail.com';
+  }
+  setTimeout(() => copyBtn.textContent = 'copy email', 2000);
+});
+</script>
+
+</body>
+</html>
