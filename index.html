@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kessendra Talents — Operations Agency</title>
-<meta name="description" content="We work as a long-term contractor, helping startups with recruitment, business automation, content operations, virtual assistance, and other operational tasks.">
+<title>Kessendra Talents - Lead Generation &amp; Contract-Based HR</title>
+<meta name="description" content="We help businesses find customers and hire the right people. Lead generation (emails, client leads, local business data) and contract-based HR services (recruitment, hiring, HR management).">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230a0a0b'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='58' font-weight='700' fill='%23d4af37' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,11 +23,9 @@
   --white:#f5f5f5;
   --gold:rgb(216, 184, 102);
   --gold-2:rgba(191, 161, 67,0.9);
-  /* dept colors */
-  --talent-accent:#d4af37;   /* gold */
-  --biz-accent:#a3e635;      /* lime */
-  --content-accent:#ef4444;  /* red */
-  --va-accent:#3b82f6;       /* blue */
+  /* service colors */
+  --hr-accent:#d4af37;      /* gold — contract-based HR */
+  --leads-accent:#a3e635;   /* lime — lead generation */
 
   --font-display:'Space Grotesk', sans-serif;
   --font-body:'Inter', sans-serif;
@@ -284,45 +282,25 @@ section{padding:100px 0 80px;position:relative;}
   padding:5px 10px;border-radius:4px;
 }
 
-/* talent ops — gold/black */
-.dept-talent{border-top:2px solid var(--talent-accent);}
-.dept-talent .dept-label{
+/* lead generation — lime/black */
+.dept-leads{border-top:2px solid var(--leads-accent);}
+.dept-leads .dept-label{
+  background:rgba(163,230,53,0.1);
+  color:var(--leads-accent);border:1px solid rgba(163,230,53,0.25);
+}
+.dept-leads .dept-card{border-color:var(--grey);}
+.dept-leads .dept-card:hover{border-color:var(--leads-accent);box-shadow:0 16px 40px -18px rgba(163,230,53,0.2);}
+.dept-leads .dept-card .num{color:var(--leads-accent);}
+
+/* contract-based hr — gold/black */
+.dept-hr{border-top:2px solid var(--hr-accent);background:var(--black-2);}
+.dept-hr .dept-label{
   background:rgba(212,175,55,0.1);
-  color:var(--talent-accent);border:1px solid rgba(212,175,55,0.25);
+  color:var(--hr-accent);border:1px solid rgba(212,175,55,0.25);
 }
-.dept-talent .dept-card{border-color:var(--grey);}
-.dept-talent .dept-card:hover{border-color:var(--talent-accent);box-shadow:0 16px 40px -18px rgba(212,175,55,0.22);}
-.dept-talent .dept-card .num{color:var(--talent-accent);}
-
-/* biz automation — lime/black */
-.dept-biz{border-top:2px solid var(--biz-accent);background:var(--black-2);}
-.dept-biz .dept-label{
-  background:rgba(163,230,53,0.08);
-  color:var(--biz-accent);border:1px solid rgba(163,230,53,0.2);
-}
-.dept-biz .dept-card{background:var(--black-3);border-color:var(--grey);}
-.dept-biz .dept-card:hover{border-color:var(--biz-accent);box-shadow:0 16px 40px -18px rgba(163,230,53,0.18);}
-.dept-biz .dept-card .num{color:var(--biz-accent);}
-
-/* content automation — red/black */
-.dept-content{border-top:2px solid var(--content-accent);}
-.dept-content .dept-label{
-  background:rgba(239,68,68,0.08);
-  color:var(--content-accent);border:1px solid rgba(239,68,68,0.2);
-}
-.dept-content .dept-card{border-color:var(--grey);}
-.dept-content .dept-card:hover{border-color:var(--content-accent);box-shadow:0 16px 40px -18px rgba(239,68,68,0.2);}
-.dept-content .dept-card .num{color:var(--content-accent);}
-
-/* virtual assistance — blue/black */
-.dept-va{border-top:2px solid var(--va-accent);background:var(--black-2);}
-.dept-va .dept-label{
-  background:rgba(59,130,246,0.08);
-  color:var(--va-accent);border:1px solid rgba(59,130,246,0.2);
-}
-.dept-va .dept-card{background:var(--black-3);border-color:var(--grey);}
-.dept-va .dept-card:hover{border-color:var(--va-accent);box-shadow:0 16px 40px -18px rgba(59,130,246,0.18);}
-.dept-va .dept-card .num{color:var(--va-accent);}
+.dept-hr .dept-card{background:var(--black-3);border-color:var(--grey);}
+.dept-hr .dept-card:hover{border-color:var(--hr-accent);box-shadow:0 16px 40px -18px rgba(212,175,55,0.22);}
+.dept-hr .dept-card .num{color:var(--hr-accent);}
 
 .dept-grid{
   display:grid;
@@ -466,10 +444,8 @@ footer{border-top:1px solid var(--grey);padding:32px 0;}
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="active">~/home</a></li>
-      <li><a href="#talent">~/talent</a></li>
-      <li><a href="#biz">~/automation</a></li>
-      <li><a href="#content">~/content</a></li>
-      <li><a href="#va">~/virtual</a></li>
+      <li><a href="#leads">~/leads</a></li>
+      <li><a href="#hr">~/hr</a></li>
       <li><a href="#about">~/about</a></li>
       <li><a href="#contact">~/contact</a></li>
     </ul>
@@ -482,14 +458,14 @@ footer{border-top:1px solid var(--grey);padding:32px 0;}
 <header class="hero" id="home">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">kessendra-talents // operations-agency</div>
-      <h1>We Help Businesses<br>Automate Operations.
-        <span class="gold-line">Contract-Based. Problem-Focused. Long-Term.</span>
+      <div class="eyebrow">kessendra-talents // lead-gen + contract-hr</div>
+      <h1>We Help Businesses<br>Find Customers &amp; Hire the Right People.
+        <span class="gold-line">Two Services. Contract-Based. Done Right.</span>
       </h1>
-      <p class="pitch">We work as a long-term contractor, helping startups with recruitment, business automation, content operations, virtual assistance, and other operational tasks, so you can focus on growth.</p>
+      <p class="pitch">We focus on two things businesses always need: a steady pipeline of leads to grow on, and the right people to run things on the ground. No bloated service list - just lead generation and contract-based HR, handled end to end.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Let's talk →</a>
-        <a href="#talent" class="btn btn-ghost">View departments</a>
+        <a href="#leads" class="btn btn-ghost">View services</a>
       </div>
     </div>
 
@@ -510,18 +486,53 @@ footer{border-top:1px solid var(--grey);padding:32px 0;}
 
 <div class="strip">
   <div class="wrap">
-    <span>We are <span class="gold">not</span> a staffing agency or a software house — we are your <span class="gold">external operations team</span>, on contract</span>
+    <span>We are <span class="gold">not</span> a "we do everything" agency — we focus on <span class="gold">two things only</span>: finding you customers, and finding you the right people</span>
   </div>
 </div>
 
-<!-- ============ TALENT OPS ============ -->
-<section id="talent" class="dept-talent">
+<!-- ============ LEAD GENERATION ============ -->
+<section id="leads" class="dept-leads">
   <div class="wrap">
     <div class="dept-layout">
       <div class="dept-desc">
-        <div class="dept-label">01 // Talent Operations</div>
-        <h2>Recruitment &amp; Talent Management</h2>
-        <p>We handle the full talent cycle on your behalf — from sourcing candidates to managing intern cohorts — so your founders never have to build an HR department from scratch.</p>
+        <div class="dept-label">01 // Lead Generation</div>
+        <h2>Find Your Next Customer</h2>
+        <p>You can't sell to people you can't reach. We build you targeted lists and contact data - verified, organized, and ready to plug into your outreach - so your sales team spends time selling, not searching.</p>
+      </div>
+      <div class="dept-grid">
+        <div class="dept-card">
+          <div class="num">01 ─ HR CONTACTS</div>
+          <h3>HR &amp; Decision-Maker Emails</h3>
+          <p>Verified email lists of HRs and decision-makers at companies you want to reach - for hiring outreach, partnerships, or sales.</p>
+        </div>
+        <div class="dept-card">
+          <div class="num">02 ─ CLIENT LEADS</div>
+          <h3>Client &amp; Prospect Leads</h3>
+          <p>Qualified leads matched to your ideal customer profile, sourced and filtered so every contact is worth your time.</p>
+        </div>
+        <div class="dept-card">
+          <div class="num">03 ─ LOCAL DATA</div>
+          <h3>Local Business Data</h3>
+          <p>Structured datasets of local businesses by industry, location, or size - built for outreach, mapping, or market research.</p>
+        </div>
+        <div class="dept-card">
+          <div class="num">04 ─ CUSTOM</div>
+          <h3>Custom Lead Lists</h3>
+          <p>Tell us exactly who you're trying to reach - we'll scope and deliver a custom lead list built to your criteria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTRACT-BASED HR ============ -->
+<section id="hr" class="dept-hr">
+  <div class="wrap">
+    <div class="dept-layout">
+      <div class="dept-desc">
+        <div class="dept-label">02 // Contract-Based HR</div>
+        <h2>Hire the Right People</h2>
+        <p>We handle the full talent cycle on your behalf - from sourcing candidates to ongoing HR management - so your founders never have to build an HR department from scratch.</p>
       </div>
       <div class="dept-grid">
         <div class="dept-card">
@@ -530,9 +541,9 @@ footer{border-top:1px solid var(--grey);padding:32px 0;}
           <p>End-to-end candidate sourcing, screening, and shortlisting against your role requirements.</p>
         </div>
         <div class="dept-card">
-          <div class="num">02 ─ INTERNSHIPS</div>
-          <h3>Internship Management</h3>
-          <p>We recruit, onboard, and manage interns on contract — extra hands without extra HR overhead.</p>
+          <div class="num">02 ─ HR MANAGEMENT</div>
+          <h3>HR Management</h3>
+          <p>Ongoing HR operations - onboarding, contracts, performance tracking - run on contract, without an in-house HR team.</p>
         </div>
         <div class="dept-card">
           <div class="num">03 ─ SCREENING</div>
@@ -544,121 +555,26 @@ footer{border-top:1px solid var(--grey);padding:32px 0;}
   </div>
 </section>
 
-<!-- ============ BUSINESS AUTOMATION ============ -->
-<section id="biz" class="dept-biz">
-  <div class="wrap">
-    <div class="dept-layout">
-      <div class="dept-desc">
-        <div class="dept-label">02 // Business Automation</div>
-        <h2>Automate Your Business Operations</h2>
-        <p>Manual tasks are killing your team's focus. We identify bottlenecks and build automation — from spreadsheet scripts to full AI chatbots — under a fixed contract.</p>
-      </div>
-      <div class="dept-grid">
-        <div class="dept-card">
-          <div class="num">01 ─ EXCEL</div>
-          <h3>Excel Automation</h3>
-          <p>Macros, formulas, and Power Query setups that eliminate repetitive spreadsheet work.</p>
-        </div>
-        <div class="dept-card">
-          <div class="num">02 ─ SCRIPTS</div>
-          <h3>Python Scripts</h3>
-          <p>Custom automation scripts for data processing, reporting, file handling, and API integrations.</p>
-        </div>
-        <div class="dept-card">
-          <div class="num">03 ─ AI</div>
-          <h3>AI Chatbots</h3>
-          <p>Trained chatbots for customer support, internal FAQs, and lead qualification — deployed on your tools.</p>
-        </div>
-        <div class="dept-card">
-          <div class="num">04 ─ DATA</div>
-          <h3>Dashboards</h3>
-          <p>Visual dashboards that turn your raw data into clear business intelligence, built to your workflow.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTENT AUTOMATION ============ -->
-<section id="content" class="dept-content">
-  <div class="wrap">
-    <div class="dept-layout">
-      <div class="dept-desc">
-        <div class="dept-label">03 // Content Automation</div>
-        <h2>Consistent Content, Without the Headache</h2>
-        <p>We run your content pipeline as an operational system — producing short-form video and written content on contract, so you stay visible without diverting your team's attention.</p>
-      </div>
-      <div class="dept-grid">
-        <div class="dept-card">
-          <div class="num">01 ─ VIDEO</div>
-          <h3>YouTube Shorts</h3>
-          <p>Scripted, edited, and published short-form video content tailored to your brand voice.</p>
-        </div>
-        <div class="dept-card">
-          <div class="num">02 ─ SOCIAL</div>
-          <h3>Instagram Reels</h3>
-          <p>Engaging reels produced on a rolling schedule to keep your audience growing consistently.</p>
-        </div>
-        <div class="dept-card">
-          <div class="num">03 ─ B2B</div>
-          <h3>LinkedIn Posts</h3>
-          <p>Professional LinkedIn content that positions your company and founders as industry voices.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ VIRTUAL ASSISTANCE ============ -->
-<section id="va" class="dept-va">
-  <div class="wrap">
-    <div class="dept-layout">
-      <div class="dept-desc">
-        <div class="dept-label">04 // Virtual Assistance</div>
-        <h2>Operational Support, On Demand</h2>
-        <p>We take on the administrative and research workload that clogs your team's calendar — giving you back the hours that should be spent on decisions, not tasks.</p>
-      </div>
-      <div class="dept-grid">
-        <div class="dept-card">
-          <div class="num">01 ─ DATA</div>
-          <h3>Data Entry</h3>
-          <p>Accurate, structured data entry across CRMs, spreadsheets, and databases — handled cleanly.</p>
-        </div>
-        <div class="dept-card">
-          <div class="num">02 ─ EMAIL</div>
-          <h3>Email Management</h3>
-          <p>Inbox triage, response drafting, follow-ups, and scheduling — so your inbox doesn't run your day.</p>
-        </div>
-        <div class="dept-card">
-          <div class="num">03 ─ RESEARCH</div>
-          <h3>Research</h3>
-          <p>Market research, competitor analysis, lead lists, and reports compiled to a brief you define.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ ABOUT ============ -->
 <section id="about" class="about-section">
   <div class="wrap about-grid">
     <div>
       <div class="eyebrow">// about us</div>
-      <h2 style="margin-bottom:18px;">Your External Operations Team</h2>
+      <h2 style="margin-bottom:18px;">Two Services. Done Properly.</h2>
       <div class="about-body">
-        <p>We become your external operations team, handling recruitment, automation, virtual assistance, and business support so you can focus on growing your company.</p>
-        <p>Kessendra Talents is not a "we do everything" agency. We are an operations contractor — you bring us a specific operational problem, we take it on contract and run it end to end. No hand-holding, no micromanagement required on your side.</p>
-        <p>Whether it's building a hiring pipeline, automating a broken workflow, or managing content consistently — we embed into your operations on long-term contracts and become accountable for outcomes, not just deliverables.</p>
+        <p>We help businesses find customers and hire the right people. That's it - that's the whole business. No long menu of services, no scope creep.</p>
+        <p>Kessendra Talents is a contract-based partner for two things every growing business needs: a steady pipeline of leads, and the right people to run things on the ground. You bring us the need, we take it on contract and run it end to end.</p>
+        <p>Whether it's a list of decision-makers to reach or a role you need filled - we embed into that one problem and stay accountable for the outcome, not just the deliverable.</p>
       </div>
     </div>
 
     <div class="founder-card">
       <div class="role">main contractor / ceo</div>
       <h3>Muhammad Hasaan</h3>
-      <p class="ftxt">Hasaan leads Kessendra Talents' contracts end to end — overseeing talent operations, automation delivery, content pipelines, and virtual assistance for every partner company on our books.</p>
+      <p class="ftxt">Hasaan leads Kessendra Talents' contracts end to end - overseeing lead generation delivery and contract-based HR services for every partner company on our books.</p>
       <div class="divider"></div>
       <div class="kv"><span>company</span><span>Kessendra Talents</span></div>
-      <div class="kv"><span>type</span><span>Operations Agency</span></div>
+      <div class="kv"><span>services</span><span>Lead Gen + Contract HR</span></div>
       <div class="kv"><span>contract</span><span>Long-term, project-based</span></div>
       <div class="kv"><span>contact</span><span>hh7233279@gmail.com</span></div>
     </div>
@@ -683,18 +599,18 @@ footer{border-top:1px solid var(--grey);padding:32px 0;}
         <div class="ct-body">
           <div class="ln"><span class="p">$</span> <span class="g2">cat contact.txt</span></div>
           <div class="ln em" style="margin-top:10px;">company &nbsp;: Kessendra Talents</div>
-          <div class="ln em">type &nbsp;&nbsp;&nbsp;&nbsp;: Operations Agency</div>
+          <div class="ln em">services: Lead Generation + Contract-Based HR</div>
           <div class="ln em">contact &nbsp;: Muhammad Hasaan (Main Contractor / CEO)</div>
           <div class="ln em">email &nbsp;&nbsp;&nbsp;: hh7233279@gmail.com</div>
           <div class="ln" style="margin-top:10px;"><span class="p">$</span> <span class="g2">mail hh7233279@gmail.com</span></div>
         </div>
       </div>
 
-      <p style="font-family:var(--font-mono);font-size:0.84rem;color:var(--grey-2);margin-bottom:18px;">Click the button below — it'll open your email client so you can message us directly.</p>
+      <p style="font-family:var(--font-mono);font-size:0.84rem;color:var(--grey-2);margin-bottom:18px;">Click the button below - it'll open Gmail with a ready-made message, so you can just fill in the details and send.</p>
 
       <div class="contact-cta">
-        <a href="mailto:hh7233279@gmail.com?subject=Operations%20Inquiry%20%E2%80%94%20Kessendra%20Talents&body=Hi%20Muhammad%2C%0A%0AI'm%20reaching%20out%20about%20a%20potential%20operations%20contract.%0A%0ACompany%3A%20%5Byour%20company%5D%0AChallenge%3A%20%5Bdescribe%20what%20you%20need%5D%0A%0ALooking%20forward%20to%20connecting." class="btn btn-email">
-          ✉ Email us directly
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hh7233279%40gmail.com&su=Service%20Inquiry%20%E2%80%94%20Kessendra%20Talents&body=Dear%20Kessendra%2C%0A%0AI%20hope%20this%20email%20finds%20you%20well.%20I%20am%20reaching%20out%20to%20inquire%20about%20your%20services.%0A%0AI%20am%20interested%20in%20the%20following%3A%0A-%20Lead%20Generation%20%28emails%20of%20HRs%2Fclients%2C%20local%20business%20data%2C%20custom%20lead%20lists%29%0A-%20Contract-Based%20HR%20Service%20%28recruitment%2C%20hiring%2C%20HR%20management%29%0A%0AHere%20is%20a%20bit%20more%20about%20what%20I%20need%3A%0A%5Bdescribe%20your%20requirement%20here%5D%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ARegards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Company%5D" target="_blank" rel="noopener" class="btn btn-email">
+          ✉ Email us via Gmail
         </a>
         <button class="copy-btn" id="copyEmailBtn" type="button">copy email address</button>
       </div>
@@ -704,13 +620,11 @@ footer{border-top:1px solid var(--grey);padding:32px 0;}
 
 <footer>
   <div class="wrap foot-inner">
-    <div><b style="color:var(--lgrey-2)">Kessendra Talents</b> — Operations Agency &mdash; Muhammad Hasaan</div>
+    <div><b style="color:var(--lgrey-2)">Kessendra Talents</b> - Operations Agency &mdash; Muhammad Hasaan</div>
     <div class="foot-links">
       <a href="#home">home</a>
-      <a href="#talent">talent</a>
-      <a href="#biz">automation</a>
-      <a href="#content">content</a>
-      <a href="#va">virtual</a>
+      <a href="#leads">leads</a>
+      <a href="#hr">hr</a>
       <a href="#about">about</a>
       <a href="#contact">contact</a>
     </div>
@@ -725,7 +639,7 @@ const navLinks = document.getElementById('navLinks');
 menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-const sectionIds = ['home','talent','biz','content','va','about','contact'];
+const sectionIds = ['home','leads','hr','about','contact'];
 const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 const linkMap = {};
 navLinks.querySelectorAll('a').forEach(a => {
@@ -764,12 +678,10 @@ function sleep(ms){ return new Promise(r => setTimeout(r,ms)); }
 async function typeBoot(){
   const lines = [
     {t:'cmd',v:'./welcome.sh'},
-    {t:'out',v:'booting kessendra-talents ops-os v2.0 ...'},
-    {t:'out',v:'[ok] talent-ops       online'},
-    {t:'out',v:'[ok] biz-automation   online'},
-    {t:'out',v:'[ok] content-pipeline online'},
-    {t:'out',v:'[ok] virtual-assist   online'},
-    {t:'out',v:'mission: handle company operations on contract'},
+    {t:'out',v:'booting kessendra-talents ops-os v3.0 ...'},
+    {t:'out',v:'[ok] lead-generation  online'},
+    {t:'out',v:'[ok] contract-hr      online'},
+    {t:'out',v:'mission: find you customers, find you the right people'},
     {t:'warn',v:"type 'help' for available commands"}
   ];
   for(const l of lines){
@@ -784,51 +696,39 @@ const COMMANDS = {
   help:()=>[
     'available commands:',
     '  about      - what kessendra talents is',
-    '  services   - list all departments',
-    '  talent     - talent operations dept',
-    '  biz        - business automation dept',
-    '  content    - content automation dept',
-    '  va         - virtual assistance dept',
+    '  services   - list both services',
+    '  leads      - lead generation service',
+    '  hr         - contract-based hr service',
     '  contact    - how to reach us',
     '  whoami     - who you are right now',
     '  ls         - list files',
     '  clear      - clear terminal'
   ],
   about:()=>[
-    'Kessendra Talents — Operations Agency.',
-    'We work as a long-term contractor for startups.',
-    'Departments: Talent Ops, Business Automation, Content, Virtual Assistance.',
-    'We handle your operational problems on contract, so you focus on growth.',
+    'Kessendra Talents.',
+    'We help businesses find customers and hire the right people.',
+    'Two services: Lead Generation, Contract-Based HR.',
+    'We handle your problem on contract, end to end.',
     'Main Contractor / CEO: Muhammad Hasaan.'
   ],
   services:()=>[
-    '01  talent-ops         recruitment, internships, candidate screening',
-    '02  biz-automation     excel, python scripts, AI chatbots, dashboards',
-    '03  content-automation youtube shorts, instagram reels, linkedin posts',
-    '04  virtual-assistance data entry, email management, research'
+    '01  lead-generation   hr/client emails, local business data, custom lead lists',
+    '02  contract-hr       recruitment, hr management, candidate screening'
   ],
-  talent:()=>{
-    document.getElementById('talent').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
-    return['talent operations dept:','  01 recruitment','  02 internship management','  03 candidate screening','scrolling to section...'];
+  leads:()=>{
+    document.getElementById('leads').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
+    return['lead generation service:','  01 hr & decision-maker emails','  02 client & prospect leads','  03 local business data','  04 custom lead lists','scrolling to section...'];
   },
-  biz:()=>{
-    document.getElementById('biz').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
-    return['business automation dept:','  01 excel automation','  02 python scripts','  03 ai chatbots','  04 dashboards','scrolling to section...'];
-  },
-  content:()=>{
-    document.getElementById('content').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
-    return['content automation dept:','  01 youtube shorts','  02 instagram reels','  03 linkedin posts','scrolling to section...'];
-  },
-  va:()=>{
-    document.getElementById('va').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
-    return['virtual assistance dept:','  01 data entry','  02 email management','  03 research','scrolling to section...'];
+  hr:()=>{
+    document.getElementById('hr').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
+    return['contract-based hr service:','  01 recruitment','  02 hr management','  03 candidate screening','scrolling to section...'];
   },
   contact:()=>{
     document.getElementById('contact').scrollIntoView({behavior:reduceMotion?'auto':'smooth'});
     return['reach us at: hh7233279@gmail.com','main contractor / ceo: muhammad hasaan','scrolling to contact section...'];
   },
-  whoami:()=>['guest@kessendra','role: visitor, evaluating an operations contractor'],
-  ls:()=>['about.txt   services.txt   talent.sh   biz.sh   content.sh   va.sh   contact.txt'],
+  whoami:()=>['guest@kessendra','role: visitor, evaluating lead-gen or hr support'],
+  ls:()=>['about.txt   services.txt   leads.sh   hr.sh   contact.txt'],
   clear:()=>{ termOutput.innerHTML=''; return null; }
 };
 
